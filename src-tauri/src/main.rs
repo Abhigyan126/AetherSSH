@@ -5,7 +5,7 @@ use ssh2::Session;
 use std::io::prelude::*;
 use std::net::TcpStream;
 use std::path::Path;
-use anyhow::{Result, Context};
+use anyhow::{Result, Context, anyhow};
 use std::net::ToSocketAddrs;
 use serde::{Deserialize, Serialize};
 use tauri::State;
@@ -117,7 +117,6 @@ impl SSHClient {
         };
 
         let mut channel = self.session.channel_session()?;
-        channel.request_pty("xterm", None, None)?;
         channel.exec(&full_command)?;
 
         let mut stdout = String::new();
