@@ -33,7 +33,9 @@ interface TerminalHistoryItem {
 const SSHInterface: React.FC = () => {
   const [currentView, setCurrentView] = useState<'connect' | 'terminal'>('connect');
   const [connectionId, setConnectionId] = useState<string | null>(null);
-  const [isConnected, setIsConnected] = useState(false);
+  // for not build
+  //   const [isConnected, setIsConnected] = useState(false);
+  const [_, setIsConnected] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   // Connection form state
